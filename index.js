@@ -101,7 +101,6 @@ function changeDirection(event) {
     const RIGHT = 39;
     const UP = 38;
     const DOWN = 40;
-
     const goingUp = (yVelocity == -unitSize);
     const goingDown = (yVelocity == unitSize);
     const goingRight = (xVelocity == unitSize);
@@ -142,12 +141,13 @@ function checkGameOver() {
             running = false;
             break;
     }
-    for(let i = 0; i < snake.length; i+=1){
+    for(let i = 1; i < snake.length; i+=1) {
         if(snake[i].x == snake[0].x && snake[i].y == snake[0].y){
             running = false;
         }
     }
 };
+
 function displayGameOver() {
     ctx.font = "50px MV Boli";
     ctx.fillStyle = "black";
@@ -155,6 +155,7 @@ function displayGameOver() {
     ctx.fillText("GAME OVER!", gameWidth / 2, gameHeight / 2);
     running = false;
 };
+
 function resetGame() {
     score = 0;
     xVelocity = unitSize;
